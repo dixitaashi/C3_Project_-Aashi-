@@ -16,7 +16,6 @@ class RestaurantServiceTest {
 
     @BeforeEach
     public void setUp(){
-        System.out.println();
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);

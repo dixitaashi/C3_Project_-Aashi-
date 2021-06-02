@@ -5,6 +5,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,6 +42,17 @@ class RestaurantTest {
         Restaurant spyRes = Mockito.spy(restaurant);
         Mockito.when(spyRes.getCurrentTime()).thenReturn(closingTime);
         assertFalse(spyRes.isRestaurantOpen());
+    }
+
+    @Test
+    public void get_total_count_of_amount_for_the_selected_items(){
+        Restaurant spyRes = Mockito.spy(restaurant);
+        List<Item> menu = new ArrayList<Item>();
+        Item item1 = new Item("Pizza", 200);
+        Item item2 = new Item("Pasta", 100);
+        menu.add(item1);
+        menu.add(item2);
+        assertEquals(300, spyRes.getTotalCostOfItems(menu));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
